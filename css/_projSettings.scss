@@ -6,8 +6,19 @@ $f-title: 'VT323', monospace;
 $f-text: 'Ubuntu', sans-serif;
 $f-tasktitle: 'Noto Sans JP', sans-serif;
 
+$bp-med: 576px;
+$bp-sm: 420px;
+
 // functions
 
 @function getRem($size) {
     @return #{$size / 16px}rem
+};
+
+//mixins
+
+@mixin responsive($breakpoint) {
+    @media screen and (max-width:$breakpoint) {
+        @content
+    }
 };

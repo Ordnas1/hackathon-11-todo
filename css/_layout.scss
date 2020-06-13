@@ -11,4 +11,8 @@
 
 .l-main {
     margin: 0% 15%;
+    
+    @include responsive($bp-med) {
+        margin: 0 2%;
+    }
 }

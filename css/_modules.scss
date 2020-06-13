@@ -46,6 +46,7 @@
 
 .todo-task {
     flex: 0 0 85%;  
+    padding: 1rem;
 }
 
 .todo-title {
@@ -61,6 +62,11 @@
     display: flex;
     justify-content: flex-start;
     margin: 0 0 1rem 0;
+    
+    @include responsive($bp-sm) {
+        flex-direction: column;
+        
+    }
 }
 
 .todo-btn {
@@ -68,6 +74,10 @@
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 3px;
+
+    @include responsive($bp-sm) {
+        margin: 0.3rem 0;
+    }
     
 }
 
