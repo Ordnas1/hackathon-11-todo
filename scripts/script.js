@@ -25,6 +25,7 @@ const displayController = (() => {
         let taskBtnCont = document.createElement("div")
         let taskBtnDel = document.createElement("button")
         let taskBtnFin = document.createElement("button")
+        let checkmark = document.createElement("i")
 
         console.log(container)
         
@@ -43,6 +44,10 @@ const displayController = (() => {
         container.appendChild(checkbox)
         container.appendChild(task)
         
+        checkbox.appendChild(checkmark)
+        checkmark.classList.add("fas")
+        checkmark.classList.add("fa-check")
+        checkmark.classList.add("is-hidden")
 
         mainContainer.appendChild(container)
 
@@ -55,6 +60,7 @@ const displayController = (() => {
         taskBtnDel.classList.add("todo-btn")
         taskBtnFin.classList.add("todo-btn")
         taskBtnDel.classList.add("del-btn")
+        taskBtnFin.classList.add("fin-btn")
 
         container.setAttribute("data-pos", `${i}`)
 
@@ -79,6 +85,9 @@ const displayController = (() => {
                 console.log(e)
                 taskStorageHandler.removeTask(Number(e.target.dataset.pos))
                 displayController.render()
+            } else if (e.target.classList.contains("fin-btn"))
+            {
+                console.log(e.path[3].querySelector(".fas").classList.toggle("is-hidden"))
             }
         })
     }
