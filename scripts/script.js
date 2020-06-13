@@ -4,13 +4,17 @@ const taskStorageHandler = (() => {
 
     const getStoredTasks = () => tasks;
     const pushTask = (taskObj) => tasks.push(taskObj);
+    const removeTask = (pos) => 
+    {
+        tasks.splice(pos, 1)
+    }
 
-    return {getStoredTasks, pushTask}
+    return {getStoredTasks, pushTask, removeTask}
 })()
 
 const displayController = (() => {
 
-    const addTaskDisplay = (taskObj) => {
+    const addTaskDisplay = (taskObj,i) => {
         const mainContainer = document.getElementById("maintodo")
 
         let container = document.createElement("div")
@@ -50,6 +54,11 @@ const displayController = (() => {
         taskBtnCont.classList.add("todo-btn-cont")
         taskBtnDel.classList.add("todo-btn")
         taskBtnFin.classList.add("todo-btn")
+        taskBtnDel.classList.add("del-btn")
+
+        container.setAttribute("data-pos", `${i}`)
+
+        
 
     }
 
@@ -59,15 +68,37 @@ const displayController = (() => {
         maintodo.querySelectorAll("*").forEach(elem => elem.remove())
     }
 
-    const render = () => {
-        clearDisplay()
+    const setEvent = () =>
+    {
+        container = document.getElementById("maintodo")
 
+        container.addEventListener("click", e =>
+        {
+            if (e.target.classList.contains("del-btn"))
+            {
+                console.log(e)
+                taskStorageHandler.removeTask(Number(e.target.dataset.pos))
+                displayController.render()
+            }
+        })
+    }
+
+    const removeEvent = () => 
+    {
+        const old = document.getElementById("maintodo")
+        const newCont = old.cloneNode(old)
+
+        old.parentNode.replaceChild(newCont,old)
+    }
+    const render = () => {
+        removeEvent()
+        clearDisplay()
+        setEvent()
         let currentTask = taskStorageHandler.getStoredTasks()
 
         for (let i = 0; i < currentTask.length; i++)
         {   
-            console.log(currentTask[i])
-            addTaskDisplay(currentTask[i])
+            addTaskDisplay(currentTask[i],i)
         }
     }
 

@@ -406,7 +406,7 @@ template {
   border: 1px solid black;
   border-radius: 8px;
   margin: 1% 0;
-  text-align: center;
+  text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
