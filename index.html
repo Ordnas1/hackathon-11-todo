@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="l-header">
+        <h1>Pendientes y tareas</h1>
+    </header>
+    <main class="l-main">
+        <form id="taskform" class="input-form" action="#">
+            <div class="form-row">
+                <label for="task">Tarea</label>
+                <input type="text" name="task" id="task" placeholder="Nombre de la tarea">
+            </div>
+            <div class="form-row">
+                <label for="desc">Descripción</label>
+                <input type="text" name="desc" id="desc" placeholder="Descripción de la tarea (Hora, lugar, detalles)">
+            </div>
+            <input type="submit" value="Agregar tarea">
+        </form>
+        <div id="maintodo" class="todo-container">
+            <div class="todo">
+                <div class="todo-checkbox"></div>
+                <div class="todo-task">
+                    <h2 class="todo-title">Tarea</h2>
+                    <p class="todo-desc">Descripción de la tarea Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                        Consectetur dolores labore hic, doloribus fugit porro earum possimus qui, excepturi nam mollitia enim dolore eligendi, soluta ipsum asperiores? Culpa, magnam iure?
+                    </p>
+                    <div class="todo-btn-cont">
+                        <button class="todo-btn">Eliminar Tarea</button>
+                        <button class="todo-btn">Finalizar Tarea</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <script src="scripts/script.js"></script>
+</body>
+    
+</html>

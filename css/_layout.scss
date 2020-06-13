@@ -1,0 +1,14 @@
+.l-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+    & > h1 {
+        font-family: $f-title;
+        font-size: getRem(60px);
+    }
+}
+
+.l-main {
+    margin: 0% 15%;
+}
